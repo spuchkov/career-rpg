@@ -341,10 +341,7 @@ function App() {
     return skills.find((item) => item.id === skillId)?.title[locale] ?? skillId
   }
 
-  function getSkillLevelMeta(skillId: string, level: number) {
-    const skill = skills.find((item) => item.id === skillId)
-    return skill?.levels.find((item) => item.level === level)
-  }
+
 
   function getStageStatusLabel(status: 'not-started' | 'in-progress' | 'completed') {
     const t = copy[locale]
