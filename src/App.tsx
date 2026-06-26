@@ -341,8 +341,6 @@ function App() {
     return skills.find((item) => item.id === skillId)?.title[locale] ?? skillId
   }
 
-
-
   function getStageStatusLabel(status: 'not-started' | 'in-progress' | 'completed') {
     const t = copy[locale]
     if (status === 'completed') return t.statusCompleted
