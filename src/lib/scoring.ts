@@ -41,15 +41,31 @@ export function getSkillGaps(roleId: string, userSkills: UserSkillState[]): Skil
   return requirements
     .map((req) => {
       const currentLevel = getUserSkillLevel(req.skillId, userSkills)
+
       return {
         skillId: req.skillId,
         currentLevel,
         requiredLevel: req.requiredLevel,
         delta: Math.max(0, req.requiredLevel - currentLevel),
+        weight: req.weight,
+        type: req.type,
       }
     })
     .filter((item) => item.delta > 0)
-    .sort((a, b) => b.delta - a.delta)
+    .sort((a, b) => {
+      const typeOrder = { core: 3, optional: 2, bonus: 1 }
+
+      if (typeOrder[b.type] !== typeOrder[a.type]) return typeOrder[b.type] - typeOrder[a.type]
+      if (b.weight !== a.weight) return b.weight - a.weight
+      if (b.delta !== a.delta) return b.delta - a.delta
+      return b.requiredLevel - a.requiredLevel
+    })
+    .map(({ skillId, currentLevel, requiredLevel, delta }) => ({
+      skillId,
+      currentLevel,
+      requiredLevel,
+      delta,
+    }))
 }
 
 export function getRoleMatch(roleId: string, userSkills: UserSkillState[]) {

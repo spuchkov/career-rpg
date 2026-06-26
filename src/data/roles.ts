@@ -1,4 +1,4 @@
-export type RoleCategory = 'support' | 'dev' | 'ops' | 'qa' | 'data'
+export type RoleCategory = 'support' | 'dev' | 'ops' | 'qa' | 'data' | 'entry'
 export type StartingLevel = 'zero' | 'junior' | 'middle'
 
 export type Role = {
@@ -10,6 +10,14 @@ export type Role = {
 }
 
 export const roles: Role[] = [
+  {
+    id: 'student',
+    title: 'Student',
+    category: 'entry',
+    description:
+      'Начинающий специалист без коммерческого опыта, который только входит в IT и выбирает первую карьерную траекторию.',
+    startingLevel: 'zero',
+  },
   {
     id: 'it-support',
     title: 'IT Support',
@@ -48,6 +56,14 @@ export const roles: Role[] = [
     category: 'qa',
     description:
       'Ручное и автоматизированное тестирование, контроль качества релизов и стабильности продукта.',
+    startingLevel: 'junior',
+  },
+  {
+    id: 'analyst',
+    title: 'Data Analyst',
+    category: 'data',
+    description:
+      'Работа с данными, SQL, метриками, визуализацией и аналитическими выводами для продукта и бизнеса.',
     startingLevel: 'junior',
   },
   {

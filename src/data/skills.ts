@@ -197,7 +197,7 @@ export const skills: Skill[] = [
     id: 'github-actions',
     title: 'GitHub Actions',
     domain: 'delivery',
-    description: 'Практическая реализация CI/CD через workflows, jobs, runners и секреты.',
+    description: 'Практическая реализация CI/CD через workflows, jobs, runners и secrets.',
     levels: [
       { ...commonScale[0], comment: 'Пока не настраивал workflows и не использовал GitHub Actions в реальных задачах.' },
       { ...commonScale[1], comment: 'Могу читать workflow-файлы, запускать готовые jobs и понимать базовую структуру pipeline.' },
